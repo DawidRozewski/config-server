@@ -1,0 +1,34 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health,info"
+  endpoint:
+    health:
+      show-details: always
+
+server:
+  port: 8081
+
+spring:
+  application:
+    name: kafka-consumer-service
+  kafka:
+    bootstrap-servers: kafka:9092
+    consumer:
+      group-id: consumer-group-1
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka/
+
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG

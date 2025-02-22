@@ -1,0 +1,48 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health,info"
+  endpoint:
+    health:
+      show-details: always
+
+server:
+  port: 8082
+
+spring:
+  main:
+    web-application-type: reactive
+  application:
+    name: api-gateway-service
+
+  cloud:
+    gateway:
+      routes:
+        - id: producer-service
+          uri: lb://kafka-producer-service
+          predicates:
+            - Path=/producer/**
+        - id: consumer-service
+          uri: lb://kafka-consumer-service
+          predicates:
+            - Path=/consumer/**
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://keycloak:8085/realms/master
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka/
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+        cloud:
+          gateway: DEBUG
