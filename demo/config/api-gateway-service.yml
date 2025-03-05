@@ -32,12 +32,12 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://keycloak:8085/realms/master
+          issuer-uri: http://localhost:8085/realms/master
 
 eureka:
   client:
     service-url:
-      defaultZone: http://eureka-server:8761/eureka/
+      defaultZone: http://localhost:8761/eureka/
 
 logging:
   level:
