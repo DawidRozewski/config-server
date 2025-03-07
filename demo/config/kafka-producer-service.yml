@@ -14,8 +14,8 @@ spring:
   application:
     name: kafka-producer-service
   kafka:
+    topic: test-topic
     properties:
-      topic: test-topic
       acks: all
       retries: 3
     bootstrap-servers: localhost:9092
