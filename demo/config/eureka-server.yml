@@ -1,3 +1,6 @@
+server:
+  port: 8761
+
 spring:
   application:
     name: eureka-server
@@ -9,9 +12,6 @@ spring:
         initial-interval: 1000
         max-attempts: 10
         multiplier: 2
-
-server:
-  port: 8761
 
 eureka:
   client:
