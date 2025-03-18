@@ -18,7 +18,7 @@
 	<properties>
 		<java.version>21</java.version>
 		<spring-cloud.version>2024.0.0</spring-cloud.version>
-		<maven-compiler.version>3.11.0</maven-compiler.version>
+		<maven-compiler.version>3.14.0</maven-compiler.version>
 	</properties>
 
 	<dependencies>
@@ -33,6 +33,11 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-config-server</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
@@ -55,8 +60,7 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>${maven-compiler.version}</version>
 				<configuration>
-					<source>21</source>
-					<target>21</target>
+					<release>${java.version}</release>
 				</configuration>
 			</plugin>
 			<plugin>
