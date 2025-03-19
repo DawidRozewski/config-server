@@ -36,14 +36,13 @@ management:
   endpoints:
     web:
       exposure:
-        include: "health,info,prometheus,gateway"
+        include: "health,prometheus,gateway"
   endpoint:
     health:
       show-details: always
+    gateway:
+      enabled: true
   metrics:
     export:
       prometheus:
-        enabled: true
-    info:
-      env:
         enabled: true
